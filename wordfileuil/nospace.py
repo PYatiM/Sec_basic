@@ -1,3 +1,3 @@
 def nospace(text):
-    text.replace(" ","")
+    text = text.replace(" ","")
     return text
