@@ -1,7 +1,7 @@
 import re
+def extractor(file)
+    with open(file) as f:
+        text = f.read()
 
-with open("file.txt") as f:
-    text = f.read()
-
-words = re.findall(r'\b\w+\b', text)
-print(set(words))
+    words = re.findall(r'\b\w+\b', text)
+    return set(words)
