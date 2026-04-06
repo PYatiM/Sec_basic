@@ -1,4 +1,3 @@
-# mutate_words.py
 def mutate(word):
     variations = set()
     variations.add(word)
