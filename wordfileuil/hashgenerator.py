@@ -13,6 +13,3 @@ def generate_hashes(input_file, output_file, algo='sha256'):
                 h = hashlib.sha256(word).hexdigest()
 
             out.write(f"{word.decode()}:{h}\n")
-
-if __name__ == "__main__":
-    generate_hashes("input.txt", "hashes.txt", "sha256")

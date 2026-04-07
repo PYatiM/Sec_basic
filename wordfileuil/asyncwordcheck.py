@@ -9,7 +9,7 @@ async def check_target(word, port=80):
     except:
         pass
 
-async def main(input_file):
+async def maini(input_file):
     tasks = []
     with open(input_file, 'r') as f:
         for line in f:

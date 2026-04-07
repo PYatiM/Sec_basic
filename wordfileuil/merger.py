@@ -10,5 +10,3 @@ def merge_files(output_file, *input_files):
         for word in sorted(words):
             f.write(word + '\n')
 
-if __name__ == "__main__":
-    merge_files("merged.txt", "file1.txt", "file2.txt", "file3.txt")

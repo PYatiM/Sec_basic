@@ -16,5 +16,3 @@ def analyze(file):
     print("Average length:", sum(lengths)/len(lengths))
     print("Most common chars:", chars.most_common(10))
 
-if __name__ == "__main__":
-    analyze("input.txt")
