@@ -1,6 +1,5 @@
-from collections import Counter
-
 def analyze(file):
+    from collections import Counter
     lengths = []
     chars = Counter()
 

@@ -1,6 +1,5 @@
-import sys
-
 def merge_files(output_file, *input_files):
+    import sys
     words = set()
     for file in input_files:
         with open(file, 'r', encoding='utf-8', errors='ignore') as f:

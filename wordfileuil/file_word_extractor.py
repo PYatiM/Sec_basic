@@ -1,5 +1,5 @@
-import re
-def extractor(file)
+=def extractor(file)
+    import re
     with open(file) as f:
         text = f.read()
 

@@ -1,6 +1,5 @@
-import hashlib
-
 def generate_hashes(input_file, output_file, algo='sha256'):
+    import hashlib
     with open(input_file, 'r') as f, open(output_file, 'w') as out:
         for line in f:
             word = line.strip().encode()
