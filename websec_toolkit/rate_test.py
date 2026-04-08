@@ -1,13 +1,17 @@
-import requests
+from req_helper import safe_get
 
 def test(url, attempts=20):
     success = 0
-    for i in range(attempts):
-        r = requests.get(url)
-        if r.status_code == 200:
+
+    for _ in range(attempts):
+        r = safe_get(url)
+        if r and r.status_code == 200:
             success += 1
 
-    print(f"Successful requests: {success}/{attempts}")
+    print(f"Successful: {success}/{attempts}")
 
-if __name__ == "__main__":
-    test("http://example.com/login")
+
+def run():
+    url = input("Target URL: ")
+    attempts = int(input("Attempts (default 20): ") or 20)
+    test(url, attempts)

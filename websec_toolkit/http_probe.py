@@ -1,13 +1,15 @@
-import requests
+from req_helper import safe_get
 
 def probe(urls):
     for url in urls:
-        try:
-            r = requests.get(url, timeout=3)
+        r = safe_get(url)
+        if r:
             print(f"{url} -> {r.status_code}")
-        except:
+        else:
             print(f"{url} -> DOWN")
 
-if __name__ == "__main__":
-    with open("targets.txt") as f:
+
+def run():
+    file = input("Targets file: ")
+    with open(file) as f:
         probe([line.strip() for line in f])

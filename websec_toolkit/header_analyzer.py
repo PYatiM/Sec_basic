@@ -1,4 +1,4 @@
-import requests
+from req_helper import safe_get
 
 SEC_HEADERS = [
     "Content-Security-Policy",
@@ -8,14 +8,17 @@ SEC_HEADERS = [
 ]
 
 def analyze(url):
-    r = requests.get(url)
-    headers = r.headers
+    r = safe_get(url)
+    if not r:
+        print("Request failed")
+        return
 
     for h in SEC_HEADERS:
-        if h not in headers:
+        if h not in r.headers:
             print(f"[-] Missing: {h}")
         else:
             print(f"[+] Present: {h}")
 
-if __name__ == "__main__":
-    analyze("http://example.com")
+
+def run():
+    analyze(input("URL: "))

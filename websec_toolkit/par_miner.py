@@ -1,13 +1,17 @@
-import requests
+from req_helper import safe_get
 
 def mine(url, params_list):
     for param in params_list:
         test_url = f"{url}?{param}=test"
-        r = requests.get(test_url)
+        r = safe_get(test_url)
 
-        if "error" in r.text.lower() or r.status_code == 200:
+        if r and (r.status_code == 200 or "error" in r.text.lower()):
             print(f"[+] Possible param: {param}")
 
-if __name__ == "__main__":
-    with open("params.txt") as f:
-        mine("http://example.com/page", [p.strip() for p in f])
+
+def run():
+    url = input("Target URL: ")
+    file = input("Params wordlist: ")
+
+    with open(file) as f:
+        mine(url, [p.strip() for p in f])
